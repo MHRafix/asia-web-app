@@ -1,4 +1,7 @@
-import AppLayout from '@/components/layouts/AppLayout';
+import SeassionBanner from '@/components/custom/Home/Banner/SeassionBanner';
+import ContentTabsMain from '@/components/custom/Home/ContentTabs/ContentTabsMain';
+import HomeSlider from '@/components/custom/Home/Slider/HomeSlider';
+import { Container, Space } from '@mantine/core';
 import { NextPage } from 'next';
 import { useState } from 'react';
 
@@ -48,11 +51,14 @@ const HomePage: NextPage = () => {
 	// );
 
 	return (
-		<AppLayout>
-			<div className='grid gap-6 lg:grid-cols-3 md:grid-cols-2'>
-				content goes to here...!
-			</div>
-		</AppLayout>
+		<div>
+			<HomeSlider />
+			<Container size='lg' p='xs' mt={50}>
+				<SeassionBanner />
+				<Space h={50} />
+				<ContentTabsMain />
+			</Container>
+		</div>
 	);
 };
 

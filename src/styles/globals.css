@@ -1,3 +1,70 @@
-/* @tailwind base; */
+/* tailwind dependencies support here */
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* google font import here */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Poppins', sans-serif !important;
+	background-color: #ebf0f4;
+}
+
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+	background: cyan !important;
+}
+
+#gotop_client_btn {
+	background: cyan;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50px;
+	height: 50px;
+	border-radius: 99999999px;
+	font-size: 25px;
+	z-index: 9999999999;
+}
+
+.scroll-to-top {
+	background-color: white;
+	right: 40px;
+	bottom: 40px;
+	position: fixed;
+	right: 10px !important;
+	z-index: 2;
+	cursor: pointer;
+	border-radius: 7px;
+	width: 40px;
+	height: 40px;
+	box-shadow: 0 9px 25px 0 rgba(132, 128, 177, 0.28);
+	border: none;
+}
+
+#gotop_client_btn:hover {
+	background: white;
+	transition: 0.3s;
+	color: cyan;
+}
+
+select option:hover {
+	background-color: #3fd0d4 !important;
+}
+
+input#destination::placeholder {
+	color: #a4a4a4;
+}
+
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+	margin-bottom: 35px;
+}
+
+span.swiper-pagination-bullet {
+	width: 15px;
+	height: 15px;
+	background: #3fcfd464;
+	opacity: 1.5;
+}
