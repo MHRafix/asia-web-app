@@ -1,6 +1,8 @@
 import { Flex, Tabs, Title } from '@mantine/core';
-import { IconBackhoe, IconCar, IconLayoutGrid } from '@tabler/icons';
 import React from 'react';
+import { GrServices } from 'react-icons/gr';
+import { SiYourtraveldottv } from 'react-icons/si';
+import { TbLayoutGrid } from 'react-icons/tb';
 import TourCarousel from '../Tour/TourCarousel';
 
 const ContentTabsMain: React.FC<{}> = () => {
@@ -15,7 +17,7 @@ const ContentTabsMain: React.FC<{}> = () => {
 						py={8}
 						px={20}
 						value='gallery'
-						icon={<IconLayoutGrid size={16} />}
+						icon={<TbLayoutGrid size={16} />}
 					>
 						All
 					</Tabs.Tab>
@@ -23,7 +25,7 @@ const ContentTabsMain: React.FC<{}> = () => {
 						py={8}
 						px={20}
 						value='messages'
-						icon={<IconCar size={16} />}
+						icon={<SiYourtraveldottv size={16} />}
 					>
 						Tour
 					</Tabs.Tab>
@@ -31,7 +33,7 @@ const ContentTabsMain: React.FC<{}> = () => {
 						py={8}
 						px={20}
 						value='settings'
-						icon={<IconBackhoe size={16} />}
+						icon={<GrServices color='red' size={16} />}
 					>
 						Services
 					</Tabs.Tab>

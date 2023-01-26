@@ -1,15 +1,16 @@
-import GlobalWrapper from '@/components/GlobalWrapper';
-import { store } from '@/store';
-import { Auth0Provider } from '@auth0/auth0-react';
-import { MantineProvider } from '@mantine/core';
-import { ModalsProvider } from '@mantine/modals';
-import { NotificationsProvider } from '@mantine/notifications';
+import { createEmotionCache, MantineProvider } from '@mantine/core';
+//@ts-ignore
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { AppProps } from 'next/app';
-import { Provider } from 'react-redux';
 import '../styles/globals.css';
+import '../styles/tailwindcss.css';
 
 export default function App({ Component, pageProps }: AppProps) {
+	const myCache = createEmotionCache({
+		key: 'mantine',
+		prepend: false,
+	});
+
 	const queryClient = new QueryClient({
 		defaultOptions: {
 			queries: {
@@ -21,28 +22,29 @@ export default function App({ Component, pageProps }: AppProps) {
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<Provider store={store}>
-				<Auth0Provider
-					domain={process.env.NEXT_PUBLIC_AUTH0_DOMAIN!}
-					clientId={process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID!}
-					audience={process.env.NEXT_PUBLIC_AUTH0_AUDIENCE!}
-					redirectUri={process.env.NEXT_PUBLIC_ROOT_URL!}
-				>
-					<NotificationsProvider position='top-right'>
-						<GlobalWrapper>
-							<MantineProvider
-								withGlobalStyles
-								withNormalizeCSS
-								theme={{ colorScheme: 'light' }}
-							>
-								<ModalsProvider>
-									<Component {...pageProps} />
-								</ModalsProvider>
-							</MantineProvider>
-						</GlobalWrapper>
-					</NotificationsProvider>
-				</Auth0Provider>
-			</Provider>
+			<MantineProvider
+				emotionCache={myCache}
+				theme={{
+					colorScheme: 'light',
+					primaryColor: 'blue',
+					colors: {
+						blue: [
+							'#edf8ff',
+							'#daf0ff',
+							'#c8e9ff',
+							'#b5e1ff',
+							'#a3daff',
+							'#91d3ff',
+							'#47b5ff',
+							'#6cc4ff',
+							'#59bcff',
+							'#47b5ff',
+						],
+					},
+				}}
+			>
+				<Component {...pageProps} />
+			</MantineProvider>
 		</QueryClientProvider>
 	);
 }
