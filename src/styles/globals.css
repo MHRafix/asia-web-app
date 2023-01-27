@@ -63,3 +63,18 @@ span.swiper-pagination-bullet {
 	background: #3fcfd464;
 	opacity: 1.5;
 }
+
+@media (min-width: 768px) {
+	.section-with-carousel .swiper-slide img {
+		height: 370px;
+	}
+}
+@media (min-width: 1200px) {
+	.section-with-carousel .swiper-slide img {
+		height: 420px;
+	}
+
+	.section-with-carousel .carousel-controls {
+		padding: 0 50px;
+	}
+}

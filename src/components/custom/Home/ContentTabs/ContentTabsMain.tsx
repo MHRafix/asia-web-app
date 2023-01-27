@@ -10,7 +10,7 @@ const ContentTabsMain: React.FC<{}> = () => {
 		<Tabs color='cyan' variant='pills' radius='xl' defaultValue='gallery'>
 			<Flex justify='space-between' align='center'>
 				<Title order={2} color='cyan' sx={{ fontFamily: 'Poppins' }}>
-					Hot Deals
+					Upcoming Deals
 				</Title>
 				<Tabs.List className=' bg-white px-4 py-2 rounded-full drop-shadow'>
 					<Tabs.Tab
