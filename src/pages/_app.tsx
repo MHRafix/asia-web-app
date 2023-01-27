@@ -25,6 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
 			<MantineProvider
 				emotionCache={myCache}
 				theme={{
+					fontFamily: 'Poppins, sans-serif',
 					colorScheme: 'light',
 					primaryColor: 'blue',
 					colors: {
