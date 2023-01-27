@@ -1,4 +1,4 @@
-import {
+/*import {
   removeAccessToken,
   removeUser,
   setAccessToken,
@@ -35,3 +35,4 @@ const GlobalWrapper: React.FC<PropsWithChildren> = ({ children }) => {
 };
 
 export default withAuthenticationRequired(GlobalWrapper);
+*/
