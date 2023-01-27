@@ -4,7 +4,6 @@ import React from 'react';
 import { BsFillStarFill } from 'react-icons/bs';
 import { FiArrowUpRight, FiStar } from 'react-icons/fi';
 import { MdLocationPin } from 'react-icons/md';
-import Rating from 'react-rating';
 
 const CardItem: React.FC<{}> = () => {
 	return (
@@ -40,12 +39,7 @@ const CardItem: React.FC<{}> = () => {
 					</Flex>
 					<Flex>
 						<Text color='cyan' size='sm'>
-							//<Rating
-								//initialRating={4.5}
-								//readonly
-								//emptySymbol={<FiStar />}
-								//fullSymbol={<BsFillStarFill />}
-							// />
+						rattting
 						</Text>
 					</Flex>
 				</Flex>
