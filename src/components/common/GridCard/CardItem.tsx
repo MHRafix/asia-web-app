@@ -40,12 +40,12 @@ const CardItem: React.FC<{}> = () => {
 					</Flex>
 					<Flex>
 						<Text color='cyan' size='sm'>
-							<Rating
-								initialRating={4.5}
-								readonly
-								emptySymbol={<FiStar />}
-								fullSymbol={<BsFillStarFill />}
-							/>
+							//<Rating
+								//initialRating={4.5}
+								//readonly
+								//emptySymbol={<FiStar />}
+								//fullSymbol={<BsFillStarFill />}
+							// />
 						</Text>
 					</Flex>
 				</Flex>
