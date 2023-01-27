@@ -1,8 +1,8 @@
-import { Box, Button, Flex, Space, Text, Title } from '@mantine/core';
+import { Box, Button, Flex, Rating, Space, Text, Title } from '@mantine/core';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
-import { BsFillStarFill } from 'react-icons/bs';
-import { FiArrowUpRight, FiStar } from 'react-icons/fi';
+import { FiArrowUpRight } from 'react-icons/fi';
 import { MdLocationPin } from 'react-icons/md';
 
 const CardItem: React.FC<{}> = () => {
@@ -38,8 +38,14 @@ const CardItem: React.FC<{}> = () => {
 						<span className='text-xs text-slate-400'>Canada</span>
 					</Flex>
 					<Flex>
-						<Text color='cyan' size='sm'>
-						rattting
+						<Text color='cyan' size='xs'>
+							<Rating
+								size='xs'
+								color='cyan'
+								value={4.5}
+								fractions={2}
+								readOnly
+							/>
 						</Text>
 					</Flex>
 				</Flex>
@@ -48,7 +54,7 @@ const CardItem: React.FC<{}> = () => {
 
 				<Box
 					bg='cyan'
-					className='px-5 py-2 border-solid border-t-[1px] border-t-slate-100 mb-2 rounded-full shadow-lg shadow-cyan-200'
+					className='px-5 py-2 border-solid border-t-[1px] border-t-slate-100  rounded-full shadow-lg shadow-cyan-200'
 				>
 					<Flex justify='space-between' align='center'>
 						<div className='bg-transparent text-md font-semibold text-white'>
@@ -82,6 +88,8 @@ const CardItem: React.FC<{}> = () => {
 				</Box>
 				<Flex justify='flex-end'>
 					<Button
+						component={Link}
+						href={`/tour-packages/45878787878`}
 						sx={{
 							letterSpacing: '1px',
 						}}

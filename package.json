@@ -32,7 +32,6 @@
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"react-icons": "^4.7.1",
-		"react-rating": "^2.0.5",
 		"react-redux": "^8.0.5",
 		"swiper": "^8.4.6",
 		"tabler-icons-react": "^1.56.0",
