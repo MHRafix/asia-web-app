@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { MdLocationPin } from 'react-icons/md';
+import CountDownTimer from './CountDownTimer';
 
 const CardItem: React.FC<{}> = () => {
 	return (
@@ -31,7 +32,6 @@ const CardItem: React.FC<{}> = () => {
 
 					<div className='text-sm font-semibold'>$ 120</div>
 				</Flex>
-
 				<Flex justify='space-between' align='center'>
 					<Flex gap={2} align='center'>
 						<MdLocationPin size={16} color='#FF597B' />
@@ -49,43 +49,9 @@ const CardItem: React.FC<{}> = () => {
 						</Text>
 					</Flex>
 				</Flex>
-
 				<Space h={10} />
 
-				<Box
-					bg='cyan'
-					className='px-5 py-2 border-solid border-t-[1px] border-t-slate-100  rounded-full shadow-lg shadow-cyan-200'
-				>
-					<Flex justify='space-between' align='center'>
-						<div className='bg-transparent text-md font-semibold text-white'>
-							<div>05</div>
-						</div>
-						<div className='bg-transparent text-md font-semibold text-white'>
-							:
-						</div>
-						<div className='bg-transparent text-md font-semibold text-white'>
-							<div>12</div>
-						</div>
-						<div className='bg-transparent text-md font-semibold text-white'>
-							:
-						</div>
-						<div className='bg-transparent text-md font-semibold text-white'>
-							<div>59</div>
-						</div>
-						<div className='bg-transparent text-md font-semibold text-white'>
-							:
-						</div>
-						<div className='bg-transparent text-md font-semibold text-white'>
-							<div>00</div>
-						</div>
-					</Flex>
-					<Flex justify='space-between' align='center'>
-						<div className='text-white text-xs font-light'>Days</div>
-						<div className='text-white text-xs font-light'>Hrs</div>
-						<div className='text-white text-xs font-light'>Min</div>
-						<div className='text-white text-xs font-light'>Sec</div>
-					</Flex>
-				</Box>
+				<CountDownTimer countdownTimestampMs={1675000324013} />
 				<Flex justify='flex-end'>
 					<Button
 						component={Link}
