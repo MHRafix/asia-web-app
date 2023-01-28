@@ -1,9 +1,20 @@
-import { Box, Button, Flex, Rating, Space, Text, Title } from '@mantine/core';
+import {
+	Badge,
+	Box,
+	Button,
+	Flex,
+	Rating,
+	Space,
+	Text,
+	Title,
+} from '@mantine/core';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { MdLocationPin } from 'react-icons/md';
+import { TbBed, TbBus } from 'react-icons/tb';
+import { TiPlaneOutline } from 'react-icons/ti';
 import CountDownTimer from './CountDownTimer';
 
 const CardItem: React.FC<{}> = () => {
@@ -11,18 +22,30 @@ const CardItem: React.FC<{}> = () => {
 		<Box className=' bg-white relative rounded-lg grid'>
 			<div className=''>
 				<Image
-					src='https://gozayaan.sgp1.digitaloceanspaces.com/media/discount_images/campaign_INTSTAY0223.jpg'
+					src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPalFmzItiv41uwG0LGteZ-243tFftPPUb1xfU8MQNo-iEOpBBT_Kflw56iuun22IgT-M&usqp=CAU'
 					alt='card image'
 					className='rounded-t-lg'
-					width={265}
+					width={268}
 					height={120}
 				/>
+				<Flex gap={10} className='absolute top-2 left-2'>
+					<button>
+						<Badge variant='filled' color='teal' radius='md' size='md' py={18}>
+							<TiPlaneOutline size={18} />
+						</Badge>
+					</button>
+					<button>
+						<Badge variant='filled' color='pink' radius='md' size='md' py={18}>
+							<TbBus size={18} />
+						</Badge>{' '}
+					</button>
+					<button>
+						<Badge variant='filled' color='grape' radius='md' size='md' py={18}>
+							<TbBed size={18} />
+						</Badge>
+					</button>
+				</Flex>
 			</div>
-			{/*
-			
-			<Space h={10} /> 
-
-			*/}
 
 			<div className='p-2'>
 				<Flex justify='space-between' align='center'>

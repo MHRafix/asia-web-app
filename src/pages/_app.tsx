@@ -42,6 +42,13 @@ export default function App({ Component, pageProps }: AppProps) {
 							'#47b5ff',
 						],
 					},
+					breakpoints: {
+						xs: 500,
+						sm: 800,
+						md: 1000,
+						lg: 1200,
+						xl: 1400,
+					},
 				}}
 			>
 				<Component {...pageProps} />
