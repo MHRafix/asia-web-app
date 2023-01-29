@@ -30,17 +30,38 @@ const CardItem: React.FC<{}> = () => {
 				/>
 				<Flex gap={10} className='absolute top-2 left-2'>
 					<button>
-						<Badge variant='filled' color='teal' radius='md' size='md' py={18}>
+						<Badge
+							className='hover:bg-teal-600'
+							variant='filled'
+							color='teal'
+							radius='md'
+							size='md'
+							py={18}
+						>
 							<TiPlaneOutline size={18} />
 						</Badge>
 					</button>
 					<button>
-						<Badge variant='filled' color='pink' radius='md' size='md' py={18}>
+						<Badge
+							className='hover:bg-pink-700'
+							variant='filled'
+							color='pink'
+							radius='md'
+							size='md'
+							py={18}
+						>
 							<TbBus size={18} />
 						</Badge>{' '}
 					</button>
 					<button>
-						<Badge variant='filled' color='grape' radius='md' size='md' py={18}>
+						<Badge
+							className='hover:bg-fuchsia-700'
+							variant='filled'
+							color='grape'
+							radius='md'
+							size='md'
+							py={18}
+						>
 							<TbBed size={18} />
 						</Badge>
 					</button>
