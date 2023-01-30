@@ -13,7 +13,7 @@ import { FaEnvelope, FaLock } from 'react-icons/fa';
 const Login = () => {
 	return (
 		<Flex justify='center' align='center' h='100vh'>
-			<Box className='w-4/12 bg-white p-10 drop-shadow-xl rounded-md'>
+			<Box className='xs:w-10/12 lg:w-5/12 bg-white p-10 drop-shadow-xl rounded-md'>
 				<Title order={2} mb={10} color='teal'>
 					Sign In
 				</Title>
