@@ -23,7 +23,8 @@
 		"next-env.d.ts",
 		"**/*.ts",
 		"**/*.tsx",
-		"src/utils/dayjsTimer/restTime.calculator.js"
+		"src/utils/dayjsTimer/restTime.calculator.js",
+		"src/lib/supabse/supabseClient.js"
 	],
 	"exclude": ["node_modules"]
 }

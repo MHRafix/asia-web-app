@@ -10,7 +10,6 @@ const defaultRemainingTime = {
 
 export const RestTimeCalculator = (countdownTimestampMs) => {
 	const [remainingTime, setRemainingTime] = useState(defaultRemainingTime);
-	console.log(remainingTime);
 	useEffect(() => {
 		const intervalId = setInterval(() => {
 			updateRemainingTime(countdownTimestampMs);

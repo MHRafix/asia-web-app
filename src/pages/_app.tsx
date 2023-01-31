@@ -52,7 +52,7 @@ export default function App({ Component, pageProps }: AppProps) {
 					},
 				}}
 			>
-				<NotificationsProvider>
+				<NotificationsProvider position='top-right'>
 					<Component {...pageProps} />
 				</NotificationsProvider>
 			</MantineProvider>
