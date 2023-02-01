@@ -2,7 +2,7 @@ import { Box } from '@mantine/core';
 import { Flex, Skeleton } from '@mantine/core/';
 import React from 'react';
 
-const CardSkelton: React.FC<{}> = () => {
+const TourCardSkelton: React.FC<{}> = () => {
 	return (
 		<Box className='bg-white drop-shadow-lg rounded-lg relative'>
 			<Skeleton className='rounded-t-lg rounded-b-none' height={178} mb='sm' />
@@ -34,4 +34,4 @@ const CardSkelton: React.FC<{}> = () => {
 	);
 };
 
-export default CardSkelton;
+export default TourCardSkelton;

@@ -3,11 +3,12 @@ import React from 'react';
 import { GrServices } from 'react-icons/gr';
 import { SiYourtraveldottv } from 'react-icons/si';
 import { TbLayoutGrid } from 'react-icons/tb';
+import Services from '../Services/Services';
 import TourCarousel from '../Tour/TourCarousel';
 
 const ContentTabsMain: React.FC<{}> = () => {
 	return (
-		<Tabs color='cyan' variant='pills' radius='xl' defaultValue='gallery'>
+		<Tabs color='cyan' variant='pills' radius='xl' defaultValue='tour'>
 			<Box
 				sx={{
 					'@media (min-width: 755px)': {
@@ -26,15 +27,7 @@ const ContentTabsMain: React.FC<{}> = () => {
 					<Tabs.Tab
 						py={8}
 						px={20}
-						value='gallery'
-						icon={<TbLayoutGrid size={16} />}
-					>
-						All
-					</Tabs.Tab>
-					<Tabs.Tab
-						py={8}
-						px={20}
-						value='messages'
+						value='tour'
 						icon={<SiYourtraveldottv size={16} />}
 					>
 						Tour
@@ -42,24 +35,31 @@ const ContentTabsMain: React.FC<{}> = () => {
 					<Tabs.Tab
 						py={8}
 						px={20}
-						value='settings'
+						value='services'
 						icon={<GrServices color='red' size={16} />}
 					>
 						Services
 					</Tabs.Tab>
+					<Tabs.Tab
+						py={8}
+						px={20}
+						value='blog'
+						icon={<TbLayoutGrid size={16} />}
+					>
+						Blog
+					</Tabs.Tab>
 				</Tabs.List>
 			</Box>
 
-			<Tabs.Panel py={25} value='gallery' pt='xs'>
-				Gallery tab content
-			</Tabs.Panel>
-
-			<Tabs.Panel py={25} value='messages' pt='xs'>
+			<Tabs.Panel py={25} value='tour' pt='xs'>
 				<TourCarousel />
 			</Tabs.Panel>
 
-			<Tabs.Panel py={25} value='settings' pt='xs'>
-				Settings tab content
+			<Tabs.Panel py={25} value='services' pt='xs'>
+				<Services />
+			</Tabs.Panel>
+			<Tabs.Panel py={25} value='blog' pt='xs'>
+				Gallery tab content
 			</Tabs.Panel>
 		</Tabs>
 	);

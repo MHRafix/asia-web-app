@@ -17,10 +17,10 @@ import { TbBed, TbBus } from 'react-icons/tb';
 import { TiPlaneOutline } from 'react-icons/ti';
 import CountDownTimer from './CountDownTimer';
 
-const CardItem: React.FC<{}> = () => {
+const TourCard: React.FC<{}> = () => {
 	return (
-		<Box className=' bg-white relative rounded-lg grid'>
-			<div className=''>
+		<Box className=' bg-white relative rounded-lg grid drop-shadow-lg'>
+			<div>
 				<Image
 					src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPalFmzItiv41uwG0LGteZ-243tFftPPUb1xfU8MQNo-iEOpBBT_Kflw56iuun22IgT-M&usqp=CAU'
 					alt='card image'
@@ -118,4 +118,4 @@ const CardItem: React.FC<{}> = () => {
 	);
 };
 
-export default CardItem;
+export default TourCard;

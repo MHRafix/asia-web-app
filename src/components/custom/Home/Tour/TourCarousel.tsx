@@ -1,7 +1,7 @@
-import TourCard from '@/components/common/GridCard/CardItem';
 import { Carousel } from '@mantine/carousel';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 
+import TourCard from '@/components/common/GridCard/Tour/TourCard';
 import React from 'react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -50,7 +50,6 @@ const TourCarousel: React.FC<{}> = () => {
 				<Carousel.Slide>
 					<TourCard />
 				</Carousel.Slide>
-				{/* ...other slides */}
 			</Carousel>
 		</div>
 	);

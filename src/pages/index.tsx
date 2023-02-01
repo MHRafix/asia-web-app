@@ -1,7 +1,7 @@
 import SeassionBanner from '@/components/custom/Home/Banner/SeassionBanner';
 import ContentTabsMain from '@/components/custom/Home/ContentTabs/ContentTabsMain';
 import HomeSlider from '@/components/custom/Home/Slider/HomeSlider';
-import ClientLayout from '@/components/layout/ClientLayout';
+import ClientAppLayout from '@/components/layout/ClientLayout/ClientAppLayout';
 import { Container, Space } from '@mantine/core';
 import { NextPage } from 'next';
 import { useState } from 'react';
@@ -52,7 +52,7 @@ const HomePage: NextPage = () => {
 	// );
 
 	return (
-		<ClientLayout>
+		<ClientAppLayout>
 			<>
 				<HomeSlider />
 				<Container size='lg' p='xs' mt={50}>
@@ -61,7 +61,7 @@ const HomePage: NextPage = () => {
 					<ContentTabsMain />
 				</Container>
 			</>
-		</ClientLayout>
+		</ClientAppLayout>
 	);
 };
 
