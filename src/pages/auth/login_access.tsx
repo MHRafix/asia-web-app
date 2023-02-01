@@ -1,8 +1,9 @@
 import { supabase } from '@/lib/supabse/supabseClient';
+import { useGetUser } from '@/logic/getUserData';
 import { Button, Card, Flex, Loader, Text } from '@mantine/core';
 import { NextPage } from 'next';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import UnAuthGif from '../../../public/assets/Loader/unauth.gif';
 import SuccessGif from '../../../public/assets/Loader/verfiyed.gif';
@@ -37,8 +38,15 @@ const LoginAccess: NextPage = () => {
 			});
 		}
 	}, []);
+
+	// prevent fake user
+	const { user } = useGetUser();
+	if (user) {
+		Router.back();
+		return <div>Unauthorized:----</div>;
+	}
 	return (
-		<div className='h-screen flex justify-center items-center w-4/12 mx-auto text-center'>
+		<div className='h-screen flex justify-center items-center lg:w-4/12 mx-auto text-center'>
 			{loading ? (
 				<Loader color='gray' size='sm' />
 			) : (

@@ -1,8 +1,8 @@
 import SeassionBanner from '@/components/custom/Home/Banner/SeassionBanner';
 import ContentTabsMain from '@/components/custom/Home/ContentTabs/ContentTabsMain';
 import HomeSlider from '@/components/custom/Home/Slider/HomeSlider';
-import { supabase } from '@/lib/supabse/supabseClient';
-import { Container, Space, Title } from '@mantine/core';
+import ClientLayout from '@/components/layout/ClientLayout';
+import { Container, Space } from '@mantine/core';
 import { NextPage } from 'next';
 import { useState } from 'react';
 
@@ -51,20 +51,17 @@ const HomePage: NextPage = () => {
 	//   }
 	// );
 
-	const [email, setEmail] = useState<string>('');
-	supabase.auth
-		.getSession()
-		.then(({ data }) => setEmail(data?.session?.user?.email!));
 	return (
-		<div>
-			<HomeSlider />
-			<Container size='lg' p='xs' mt={50}>
-				<Title order={3}>{email}</Title>
-				<SeassionBanner />
-				<Space h={50} />
-				<ContentTabsMain />
-			</Container>
-		</div>
+		<ClientLayout>
+			<>
+				<HomeSlider />
+				<Container size='lg' p='xs' mt={50}>
+					<SeassionBanner />
+					<Space h={50} />
+					<ContentTabsMain />
+				</Container>
+			</>
+		</ClientLayout>
 	);
 };
 

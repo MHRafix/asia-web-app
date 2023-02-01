@@ -3,13 +3,14 @@ import {
 	errorStyle,
 	successStyle,
 } from '@/components/common/ToastConfig/toastStyle';
+import { useGetUser } from '@/logic/getUserData';
 import { Box, Button, Flex, Input, TextInput, Title } from '@mantine/core/';
 import { useForm, yupResolver } from '@mantine/form';
 import { showNotification } from '@mantine/notifications';
 import { useMutation } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { NextPage } from 'next';
-import { useState } from 'react';
+import Router from 'next/router';
 import { BsCheckCircleFill } from 'react-icons/bs';
 import { FaEnvelope } from 'react-icons/fa';
 import { TiWarning } from 'react-icons/ti';
@@ -29,7 +30,7 @@ const MagicLogin: NextPage = () => {
 		validate: yupResolver(validationSchema),
 	});
 
-	// login req
+	// login req mutation
 	const { isLoading: loginLoading, mutate: loginMutate } = useMutation(
 		loginAction,
 		{
@@ -59,15 +60,12 @@ const MagicLogin: NextPage = () => {
 		loginMutate(payload);
 	};
 
-	const [session, setSession] = useState<any>(null);
-
-	// useEffect(() => {
-	// 	setSession(supabase.auth.setSession());
-	// 	supabase.auth.onAuthStateChange((_event, session) => {
-	// 		// setSession(session);
-	// 		console.log(session);
-	// 	});
-	// }, []);
+	// prevent fake user
+	const { user } = useGetUser();
+	if (user) {
+		Router.back();
+		return <div>Unauthorized:----</div>;
+	}
 
 	return (
 		<Flex justify='center' align='center' h='100vh'>
