@@ -1,11 +1,8 @@
-import { useGetUser } from '@/logic/getUserData';
 import { AppShell } from '@mantine/core';
 import React from 'react';
 import ClientHeader from './ClientHeader';
 
 const ClientAppLayout: React.FC<{ children: JSX.Element }> = ({ children }) => {
-	const { user } = useGetUser();
-
 	return (
 		<AppShell
 			header={<ClientHeader />}
@@ -20,7 +17,7 @@ const ClientAppLayout: React.FC<{ children: JSX.Element }> = ({ children }) => {
 				},
 			})}
 		>
-			{children}
+			<main className='mt-[60px]'>{children}</main>
 		</AppShell>
 	);
 };

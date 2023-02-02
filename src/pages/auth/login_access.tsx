@@ -43,7 +43,6 @@ const LoginAccess: NextPage = () => {
 	const { user } = useGetUser();
 	if (user) {
 		Router.back();
-		return <div>Unauthorized:----</div>;
 	}
 	return (
 		<div className='h-screen flex justify-center items-center lg:w-4/12 mx-auto text-center'>

@@ -1,12 +1,15 @@
 import { Box, Space, Tabs, Title } from '@mantine/core';
-import React from 'react';
-import { GrServices } from 'react-icons/gr';
-import { SiYourtraveldottv } from 'react-icons/si';
-import { TbLayoutGrid } from 'react-icons/tb';
-import Services from '../Services/Services';
-import TourCarousel from '../Tour/TourCarousel';
+import React, { useState } from 'react';
+import { HiOutlineViewGrid } from 'react-icons/hi';
+import { TbBrandAsana } from 'react-icons/tb';
+import { TiPlaneOutline } from 'react-icons/ti';
+import Services from './Services/Services';
+import TourCarousel from './Tour/TourCarousel';
+import YoutubeLayer from './YoutubeNews/YoutubeLayer';
 
 const ContentTabsMain: React.FC<{}> = () => {
+	const [title, setTitle] = useState<string>('Upcomming Tours');
+
 	return (
 		<Tabs color='cyan' variant='pills' radius='xl' defaultValue='tour'>
 			<Box
@@ -20,33 +23,36 @@ const ContentTabsMain: React.FC<{}> = () => {
 				}}
 			>
 				<Title order={2} color='cyan' sx={{ fontFamily: 'Poppins' }}>
-					Upcoming Deals
+					{title}
 				</Title>
 				<Space h={20} />
-				<Tabs.List className=' bg-white px-4 py-2 rounded-full drop-shadow'>
+				<Tabs.List className=' bg-white  md:px-4 xs:py-1 md:py-2 rounded-full drop-shadow !justify-evenly'>
 					<Tabs.Tab
 						py={8}
-						px={20}
+						className='md:px-5'
 						value='tour'
-						icon={<SiYourtraveldottv size={16} />}
+						icon={<TiPlaneOutline size={16} />}
+						onClick={() => setTitle('Upcomming Tours')}
 					>
 						Tour
 					</Tabs.Tab>
 					<Tabs.Tab
 						py={8}
-						px={20}
+						className='md:px-5'
 						value='services'
-						icon={<GrServices color='red' size={16} />}
+						icon={<TbBrandAsana size={16} />}
+						onClick={() => setTitle('Our Services')}
 					>
 						Services
 					</Tabs.Tab>
 					<Tabs.Tab
 						py={8}
-						px={20}
-						value='blog'
-						icon={<TbLayoutGrid size={16} />}
+						className='md:px-5'
+						value='news'
+						icon={<HiOutlineViewGrid size={16} />}
+						onClick={() => setTitle('Latest News')}
 					>
-						Blog
+						News
 					</Tabs.Tab>
 				</Tabs.List>
 			</Box>
@@ -58,8 +64,8 @@ const ContentTabsMain: React.FC<{}> = () => {
 			<Tabs.Panel py={25} value='services' pt='xs'>
 				<Services />
 			</Tabs.Panel>
-			<Tabs.Panel py={25} value='blog' pt='xs'>
-				Gallery tab content
+			<Tabs.Panel py={25} value='news' pt='xs'>
+				<YoutubeLayer />
 			</Tabs.Panel>
 		</Tabs>
 	);

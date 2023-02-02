@@ -1,4 +1,12 @@
-import { Box, Button, Flex, Group, Text, ThemeIcon } from '@mantine/core';
+import {
+	Badge,
+	Box,
+	Button,
+	Flex,
+	Group,
+	Text,
+	ThemeIcon,
+} from '@mantine/core';
 import Link from 'next/link';
 import React from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
@@ -6,7 +14,16 @@ import { TiPlaneOutline } from 'react-icons/ti';
 
 const ServiceCard: React.FC<{}> = () => {
 	return (
-		<Box className=' bg-white relative rounded-lg grid p-3 drop-shadow-lg'>
+		<Box
+			className=' bg-white relative rounded-lg grid
+		 p-3 drop-shadow-lg'
+		>
+			<Flex justify='space-between' align='center'>
+				<ThemeIcon variant='light' radius='xl' size={50} color='pink'>
+					$99
+				</ThemeIcon>
+				<Badge color='teal'>Expandable</Badge>
+			</Flex>
 			<Flex justify='center'>
 				<ThemeIcon size={60} color='teal' radius='xl' mb={8}>
 					<TiPlaneOutline size={25} />
