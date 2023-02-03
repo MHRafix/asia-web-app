@@ -24,7 +24,7 @@ const ClientHeader: React.FC<{}> = () => {
 		transitionProperty: 'transform, opacity',
 	};
 	return (
-		<Header height={60} bg='#fff' withBorder={false} py={10}>
+		<Header height={60} withBorder={false} py={10}>
 			<Container size='lg' px='xs'>
 				<div className='grid grid-cols-3'>
 					<div>
