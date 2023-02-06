@@ -1,17 +1,30 @@
 import { useGetUser } from '@/logic/getUserData';
-import { Button, Group, Input, Space, Text, TextInput } from '@mantine/core';
+import {
+	Button,
+	Group,
+	Input,
+	Space,
+	Text,
+	TextInput,
+	Tooltip,
+} from '@mantine/core';
 import { Dropzone, IMAGE_MIME_TYPE } from '@mantine/dropzone';
 import { useForm, yupResolver } from '@mantine/form';
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { FiUpload } from 'react-icons/fi';
 import { HiOutlinePhotograph } from 'react-icons/hi';
 import { ImCross } from 'react-icons/im';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object().shape({
-	name: Yup.string().min(3, 'Name should have atleast 3 letters.'),
-	phone: Yup.string().min(11, 'Phone should have atleast 11 letters.'),
+	name: Yup.string()
+		.required('Name field is required.')
+		.min(3, 'Name should have atleast 3 letters.'),
+	phone: Yup.string()
+		.required('Phone field is required.')
+		.min(11, 'Phone should have atleast 8 digits.'),
 });
 
 const ProfileUpdateForm: React.FC<{}> = () => {
@@ -38,14 +51,14 @@ const ProfileUpdateForm: React.FC<{}> = () => {
 	};
 
 	return (
-		<div className='bg-white drop-shadow-xl p-8 rounded-md'>
+		<div className='bg-white drop-shadow-xl p-5 rounded-md'>
 			{pic ? (
-				<Image
+				<img
 					src={pic && URL.createObjectURL(pic)}
 					alt='Pic'
-					width={70}
-					height={70}
-					className='mx-auto rounded-full'
+					width={120}
+					height={120}
+					className='p-1 rounded-full shadow-md'
 				/>
 			) : (
 				<Dropzone
@@ -87,22 +100,41 @@ const ProfileUpdateForm: React.FC<{}> = () => {
 				</Dropzone>
 			)}
 			<form onSubmit={updateProfileForm.onSubmit(handleUpdate)}>
-				<Input.Wrapper label='Name' size='xs' my={10}>
-					<TextInput
+				<Input.Wrapper
+					label='Name'
+					size='sm'
+					my={10}
+					error={updateProfileForm?.errors?.name}
+				>
+					<Input
 						variant='filled'
 						{...updateProfileForm.getInputProps('name')}
 					/>
 				</Input.Wrapper>
-				<Input.Wrapper label='Email' size='xs' my={10}>
-					<TextInput
-						disabled={true}
-						variant='filled'
-						defaultValue={user?.email}
-					/>
-				</Input.Wrapper>
-				<Input.Wrapper label='Phone' size='xs' my={10}>
-					<TextInput
-						variant='filled'
+
+				<Tooltip
+					label="Email isn't editble"
+					position='right-end'
+					color='red'
+					withArrow
+				>
+					<Input.Wrapper label='Email' size='sm' my={10}>
+						<TextInput
+							disabled={true}
+							variant='filled'
+							defaultValue={user?.email}
+						/>
+					</Input.Wrapper>
+				</Tooltip>
+				<Input.Wrapper
+					label='Phone'
+					size='sm'
+					my={10}
+					error={updateProfileForm?.errors?.phone}
+				>
+					<PhoneInput
+						international
+						defaultCountry='BD'
 						{...updateProfileForm.getInputProps('phone')}
 					/>
 				</Input.Wrapper>

@@ -11,8 +11,8 @@ const ProfileSettings: React.FC<{}> = () => {
 	return (
 		<ClientAppLayout>
 			<Container size='lg' p='sm'>
-				<div className='flex  items-center '>
-					<div className='lg:w-5/12 mx-auto grid gap-5'>
+				<div className='flex items-center '>
+					<div className='sm:w-10/12 md:w-7/12 lg:w-5/12 mx-auto grid gap-5'>
 						<ProfileDetails />
 						<ProfileUpdateForm />
 					</div>
