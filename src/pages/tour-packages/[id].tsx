@@ -1,18 +1,24 @@
 import ClientAppLayout from '@/components/layout/ClientLayout/ClientAppLayout';
 import {
 	ActionIcon,
+	Avatar,
 	Box,
+	Button,
+	Card,
 	Container,
+	Divider,
 	Flex,
 	Rating,
 	Text,
+	Timeline,
 	Title,
 	Tooltip,
 } from '@mantine/core';
 import { NextPage } from 'next';
 import Image from 'next/image';
 import { MdLocationPin } from 'react-icons/md';
-import { TbMapSearch } from 'react-icons/tb';
+import { RiShareForward2Line } from 'react-icons/ri';
+import { TbMapSearch, TbPlaneDeparture } from 'react-icons/tb';
 
 const SingleTourPage: NextPage = () => {
 	return (
@@ -47,8 +53,17 @@ const SingleTourPage: NextPage = () => {
 												readOnly
 											/>
 										</Text>
+										<Button
+											variant='light'
+											color='teal'
+											fw={500}
+											rightIcon={<RiShareForward2Line size={20} />}
+										>
+											Share
+										</Button>
 									</Flex>
 								</Box>
+
 								<Box>
 									<Tooltip label='Map direction'>
 										<ActionIcon
@@ -62,6 +77,77 @@ const SingleTourPage: NextPage = () => {
 									</Tooltip>
 								</Box>
 							</Flex>
+							<Divider my='sm' color='#e1e1e1' />
+							<div className='px-[10px]'>
+								<Title order={3} my={10}>
+									Tour Outline
+								</Title>
+								<Timeline color='teal' active={1} lineWidth={2} bulletSize={22}>
+									<Timeline.Item
+										bullet={<TbPlaneDeparture size={30} />}
+										bulletSize={55}
+									>
+										<Card px='lg' radius='md' mx={10}>
+											<Flex justify='space-between' align='center'>
+												<Text fw={500}>Travel from Dhaka</Text>
+												<Button variant='light' color='gray'>
+													<Title order={5} ff='Poppins' color='#444'>
+														Tue, Mar 28
+													</Title>
+												</Button>
+											</Flex>
+
+											<Divider my='xs' color='#e1e1e1' />
+
+											<div>
+												<div className='grid md:grid-cols-3 gap-5'>
+													<Flex align='center' gap={8}>
+														<Image
+															src={planeImage}
+															alt='transportIcon'
+															width={40}
+															height={40}
+														/>
+														Qatar Airlines
+													</Flex>
+													<div>
+														<Text fz={15} fw={500}>
+															New York LGA - Turkey
+														</Text>
+														<Text size='sm' color='#c1c1c1'>
+															03:29 pm
+														</Text>
+													</div>
+													<div className='md:text-right'>
+														<Text fz={15} fw={500}>
+															2 stops
+														</Text>
+														<Text size='sm' color='#c1c1c1'>
+															12h 45m
+														</Text>
+													</div>
+												</div>
+											</div>
+										</Card>
+									</Timeline.Item>
+
+									<Timeline.Item
+										title='Avatar'
+										bulletSize={55}
+										bullet={
+											<Avatar
+												size={55}
+												radius='xl'
+												src='https://avatars0.githubusercontent.com/u/10353856?s=460&u=88394dfd67727327c1f7670a1764dc38a8a24831&v=4'
+											/>
+										}
+									>
+										<Text color='dimmed' size='sm'>
+											Timeline bullet as avatar image
+										</Text>
+									</Timeline.Item>
+								</Timeline>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -71,3 +157,5 @@ const SingleTourPage: NextPage = () => {
 };
 
 export default SingleTourPage;
+
+const planeImage = 'https://cdn-icons-png.flaticon.com/512/9129/9129518.png';

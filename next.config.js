@@ -7,6 +7,7 @@ const nextConfig = {
 			'www.travelities.com',
 			'www.deshghuri.com',
 			'images.unsplash.com',
+			'cdn-icons-png.flaticon.com',
 		],
 	},
 };
