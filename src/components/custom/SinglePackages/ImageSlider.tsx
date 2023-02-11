@@ -15,7 +15,6 @@ const ImageSlider: React.FC<{}> = () => {
 			loop
 			withControls={false}
 			slidesToScroll={1}
-			dragFree
 			withIndicators
 		>
 			<Carousel.Slide>

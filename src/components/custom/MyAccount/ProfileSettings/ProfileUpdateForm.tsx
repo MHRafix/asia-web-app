@@ -5,15 +5,18 @@ import {
 	Input,
 	Space,
 	Text,
+	Flex,
 	TextInput,
 	Tooltip,
 } from '@mantine/core';
 import { Dropzone, IMAGE_MIME_TYPE } from '@mantine/dropzone';
 import { useForm, yupResolver } from '@mantine/form';
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { FiUpload } from 'react-icons/fi';
 import { HiOutlinePhotograph } from 'react-icons/hi';
 import { ImCross } from 'react-icons/im';
+import { RxReset } from 'react-icons/rx';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import * as Yup from 'yup';
@@ -53,12 +56,12 @@ const ProfileUpdateForm: React.FC<{}> = () => {
 	return (
 		<div className='bg-white drop-shadow-xl p-5 rounded-md'>
 			{pic ? (
-				<img
+				<Image
 					src={pic && URL.createObjectURL(pic)}
 					alt='Pic'
 					width={120}
 					height={120}
-					className='p-1 rounded-full shadow-md'
+					className='!w-[120px] !h-[120px] mx-auto p-1 rounded-full shadow-md'
 				/>
 			) : (
 				<Dropzone
@@ -98,6 +101,21 @@ const ProfileUpdateForm: React.FC<{}> = () => {
 						</div>
 					</Group>
 				</Dropzone>
+			)}
+
+			{pic && (
+				<Flex justify='center' gap={10} mt={10}>
+					<Button
+						color='red'
+						leftIcon={<RxReset size={18} />}
+						onClick={() => setPic(() => '')}
+					>
+						Reset
+					</Button>
+					<Button color='teal' leftIcon={<FiUpload size={18} />}>
+						Uplaod
+					</Button>
+				</Flex>
 			)}
 			<form onSubmit={updateProfileForm.onSubmit(handleUpdate)}>
 				<Input.Wrapper

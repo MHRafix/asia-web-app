@@ -1,4 +1,5 @@
 import { createEmotionCache, MantineProvider } from '@mantine/core';
+import { ModalsProvider } from '@mantine/modals';
 import { NotificationsProvider } from '@mantine/notifications';
 //@ts-ignore
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -52,9 +53,11 @@ export default function App({ Component, pageProps }: AppProps) {
 					},
 				}}
 			>
-				<NotificationsProvider position='top-right'>
-					<Component {...pageProps} />
-				</NotificationsProvider>
+				<ModalsProvider>
+					<NotificationsProvider position='top-right'>
+						<Component {...pageProps} />
+					</NotificationsProvider>
+				</ModalsProvider>
 			</MantineProvider>
 		</QueryClientProvider>
 	);

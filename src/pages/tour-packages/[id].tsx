@@ -93,7 +93,7 @@ const SingleTourPage: NextPage = () => {
 												mx={5}
 												shadow='lg'
 											>
-												<Box className='sm:flex justify-between items-center gap-5'>
+												<Box className='sm:flex justify-between items-center gap-5 '>
 													<Text fz={{ xs: 14, sm: 16 }} fw={500}>
 														Departure from
 													</Text>

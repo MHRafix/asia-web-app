@@ -1,3 +1,4 @@
+import { supabase } from '@/lib/supabse/supabseClient';
 import { useGetUser } from '@/logic/getUserData';
 import {
 	Avatar,
@@ -9,7 +10,9 @@ import {
 	Text,
 	UnstyledButton,
 } from '@mantine/core';
+import { openConfirmModal } from '@mantine/modals';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { FiLogIn } from 'react-icons/fi';
 import { MdManageAccounts, MdOpenInNew } from 'react-icons/md';
@@ -17,12 +20,17 @@ import { TbLayoutGrid, TbLogout } from 'react-icons/tb';
 
 const ClientHeader: React.FC<{}> = () => {
 	const { user } = useGetUser();
-	const scaleY = {
-		in: { opacity: 1, transform: 'scaleY(1)' },
-		out: { opacity: 0, transform: 'scaleY(0)' },
-		common: { transformOrigin: 'top' },
-		transitionProperty: 'transform, opacity',
+	const router = useRouter();
+
+	// signout action function
+	const signOut = async () => {
+		const { error } = await supabase.auth.signOut();
+
+		if (!error) {
+			router?.push('/auth/magic_login');
+		}
 	};
+
 	return (
 		<Header height={60} withBorder={false} py={10}>
 			<Container size='lg' px='xs'>
@@ -61,7 +69,7 @@ const ClientHeader: React.FC<{}> = () => {
 							News Update
 						</UnstyledButton>
 					</div>
-					<div className='flex justify-end gap-3'>
+					<div className='flex justify-end items-center gap-3'>
 						<Button
 							rightIcon={<MdOpenInNew size={18} />}
 							fw={400}
@@ -89,11 +97,11 @@ const ClientHeader: React.FC<{}> = () => {
 								<Menu.Target>
 									<Avatar
 										className='cursor-pointer capitalize'
-										size='md'
+										size={42}
 										color='teal'
 										radius='xl'
 									>
-										{user?.email.slice(0, 2)}
+										{user?.email.slice(0, 1)}
 									</Avatar>
 								</Menu.Target>
 
@@ -117,7 +125,28 @@ const ClientHeader: React.FC<{}> = () => {
 									<Menu.Item icon={<TbLayoutGrid size={18} />}>
 										Admin Dashboard
 									</Menu.Item>
-									<Menu.Item color='red' icon={<TbLogout size={18} />}>
+									<Menu.Item
+										color='red'
+										icon={<TbLogout size={18} />}
+										onClick={() =>
+											openConfirmModal({
+												title: 'Confirm your logout action',
+												centered: true,
+												children: (
+													<Text size='sm'>
+														Are you sure you want to logout.
+													</Text>
+												),
+												labels: {
+													confirm: 'Logout',
+													cancel: 'No, Let me logged in',
+												},
+												confirmProps: { color: 'red' },
+												onCancel: () => {},
+												onConfirm: () => signOut(),
+											})
+										}
+									>
 										Logout
 									</Menu.Item>
 								</Menu.Dropdown>
