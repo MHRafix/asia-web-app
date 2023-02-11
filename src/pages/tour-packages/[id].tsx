@@ -1,3 +1,4 @@
+import ImageSlider from '@/components/custom/SinglePackages/ImageSlider';
 import StickyPriceArea from '@/components/custom/SinglePackages/StickyPriceArea';
 import ClientAppLayout from '@/components/layout/ClientLayout/ClientAppLayout';
 import {
@@ -25,19 +26,11 @@ const SingleTourPage: NextPage = () => {
 	return (
 		<ClientAppLayout>
 			<>
-				<Container size='lg' p='sm'>
+				<Container size='lg' p='sm' mb={100}>
 					<div className='flex items-center '>
-						<div className='xs:w-full sm:w-10/12 lg:w-8/12 mx-auto grid gap-5 xs:mt-2 md:mt-10'>
-							{/* <ProfileDetails />
-                <ProfileUpdateForm /> */}
+						<div className='xs:w-full sm:w-10/12 lg:w-8/12 mx-auto grid gap-5 xs:mt-2 md:mt-5'>
 							<div>
-								<Image
-									src='https://images.unsplash.com/photo-1613507681723-252eb6b66967?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMTAzMzB8MHwxfGFsbHx8fHx8fHx8fDE2Mjc1OTMzMTQ&ixlib=rb-1.2.1&q=80&w=1080&utm_source=travelities&utm_medium=referral&utm_campaign=api-credit'
-									alt='single_image'
-									width={100}
-									height={100}
-									className='w-full h-[300px] rounded-2xl'
-								/>
+								<ImageSlider />
 								<Flex justify='space-between' align='center' my={10} px={10}>
 									<Box>
 										<Title order={3}>This is title</Title>
@@ -92,47 +85,56 @@ const SingleTourPage: NextPage = () => {
 									>
 										<Timeline.Item
 											bullet={<TbPlaneDeparture size={30} />}
-											bulletSize={55}
+											bulletSize={45}
 										>
-											<Card px='lg' radius='md' mx={10} shadow='lg'>
-												<Flex justify='space-between' align='center'>
-													<Text fw={500}>Travel from Dhaka</Text>
+											<Card
+												px={{ xs: 'sm', sm: 'lg' }}
+												radius='md'
+												mx={5}
+												shadow='lg'
+											>
+												<Box className='sm:flex justify-between items-center gap-5'>
+													<Text fz={{ xs: 14, sm: 16 }} fw={500}>
+														Departure from
+													</Text>
 													<Button variant='light' color='gray'>
-														<Title order={5} ff='Poppins' color='#444'>
+														<Text
+															fz={{ xs: 12, sm: 13 }}
+															ff='Poppins'
+															color='#444'
+														>
 															Tue, Mar 28
-														</Title>
+														</Text>
 													</Button>
-												</Flex>
+												</Box>
 
 												<Divider my='xs' color='#e1e1e1' />
 
-												<div>
-													<div className='grid md:grid-cols-3 gap-5 '>
-														<Flex align='center' gap={8}>
-															<Image
-																src={planeImage}
-																alt='transportIcon'
-																width={40}
-																height={40}
-															/>
-															Qatar Airlines
-														</Flex>
-														<div>
-															<Text fz={15} fw={500}>
-																New York LGA - Turkey
-															</Text>
-															<Text size='sm' color='#c1c1c1'>
-																03:29 pm
-															</Text>
-														</div>
-														<div className='md:text-right'>
-															<Text fz={15} fw={500}>
-																2 stops
-															</Text>
-															<Text size='sm' color='#c1c1c1'>
-																12h 45m
-															</Text>
-														</div>
+												<div className='grid md:grid-cols-3 gap-5 '>
+													<Flex align='center' gap={8}>
+														<Image
+															src={planeImage}
+															alt='transportIcon'
+															width={30}
+															height={30}
+														/>
+														Qatar Airlines
+													</Flex>
+													<div>
+														<Text fz={15} fw={500}>
+															New York LGA - Turkey
+														</Text>
+														<Text size='sm' color='#555'>
+															03:29 pm
+														</Text>
+													</div>
+													<div className='md:text-right'>
+														<Text fz={15} fw={500}>
+															2 stops
+														</Text>
+														<Text size='sm' color='#555'>
+															12h 45m
+														</Text>
 													</div>
 												</div>
 											</Card>
@@ -140,7 +142,7 @@ const SingleTourPage: NextPage = () => {
 
 										<Timeline.Item
 											title='Avatar'
-											bulletSize={55}
+											bulletSize={45}
 											bullet={
 												<Avatar
 													size={55}

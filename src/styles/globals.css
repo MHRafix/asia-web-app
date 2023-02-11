@@ -64,6 +64,12 @@ span.swiper-pagination-bullet {
 	opacity: 1.5;
 }
 
+.mantine-Carousel-indicator {
+	background-color: #3fd0d4 !important;
+	width: 15px !important;
+	height: 15px !important;
+}
+
 @media (min-width: 768px) {
 	.section-with-carousel .swiper-slide img {
 		height: 370px;

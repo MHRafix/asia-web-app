@@ -18,7 +18,7 @@ const TourCarousel: React.FC<{}> = () => {
 				sx={{
 					position: 'relative',
 				}}
-				height={400}
+				height={360}
 				slideSize='25%'
 				slideGap='md'
 				loop
