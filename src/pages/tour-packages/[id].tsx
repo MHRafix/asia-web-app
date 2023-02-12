@@ -24,7 +24,7 @@ import { TbMapSearch, TbPlaneDeparture } from 'react-icons/tb';
 
 const SingleTourPage: NextPage = () => {
 	return (
-		<ClientAppLayout>
+		<ClientAppLayout backIcon={true}>
 			<>
 				<Container size='lg' p='sm' mb={100}>
 					<div className='flex items-center '>

@@ -2,10 +2,13 @@ import { AppShell } from '@mantine/core';
 import React from 'react';
 import ClientHeader from './ClientHeader';
 
-const ClientAppLayout: React.FC<{ children: JSX.Element }> = ({ children }) => {
+const ClientAppLayout: React.FC<{
+	backIcon?: boolean;
+	children: JSX.Element;
+}> = ({ backIcon, children }) => {
 	return (
 		<AppShell
-			header={<ClientHeader />}
+			header={<ClientHeader backIcon={backIcon} />}
 			styles={(theme) => ({
 				main: {
 					width: '100%',

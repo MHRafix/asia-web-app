@@ -1,10 +1,12 @@
 import { supabase } from '@/lib/supabse/supabseClient';
 import { useGetUser } from '@/logic/getUserData';
 import {
+	ActionIcon,
 	Avatar,
 	Button,
 	Container,
 	Divider,
+	Flex,
 	Header,
 	Menu,
 	Text,
@@ -12,13 +14,17 @@ import {
 } from '@mantine/core';
 import { openConfirmModal } from '@mantine/modals';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 import React from 'react';
 import { FiLogIn } from 'react-icons/fi';
-import { MdManageAccounts, MdOpenInNew } from 'react-icons/md';
+import {
+	MdManageAccounts,
+	MdOpenInNew,
+	MdOutlineArrowBackIosNew,
+} from 'react-icons/md';
 import { TbLayoutGrid, TbLogout } from 'react-icons/tb';
 
-const ClientHeader: React.FC<{}> = () => {
+const ClientHeader: React.FC<{ backIcon?: boolean }> = ({ backIcon }) => {
 	const { user } = useGetUser();
 	const router = useRouter();
 
@@ -32,14 +38,25 @@ const ClientHeader: React.FC<{}> = () => {
 	};
 
 	return (
-		<Header height={60} withBorder={false} py={10}>
+		<Header height={60} bg='#FAFAFA' withBorder={false} py={10}>
 			<Container size='lg' px='xs'>
 				<div className='grid grid-cols-3'>
-					<div>
+					<Flex align='center' gap={10}>
+						{backIcon && (
+							<ActionIcon
+								onClick={() => Router.back()}
+								size={40}
+								radius='xl'
+								variant='light'
+								className='!bg-slate-100 hover:!bg-slate-200 hover:duration-300'
+							>
+								<MdOutlineArrowBackIosNew size={20} color='#000' />
+							</ActionIcon>
+						)}
 						<Text fz={25} fw={700} color='teal'>
 							Travelities
 						</Text>
-					</div>
+					</Flex>
 					<div className='flex justify-between items-center'>
 						<UnstyledButton color='#333333' component={Link} href='/' fw={500}>
 							Home
