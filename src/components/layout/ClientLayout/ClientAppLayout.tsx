@@ -1,5 +1,6 @@
 import { AppShell } from '@mantine/core';
 import React from 'react';
+import ClientFooter from './ClientFooter';
 import ClientHeader from './ClientHeader';
 
 const ClientAppLayout: React.FC<{
@@ -21,6 +22,7 @@ const ClientAppLayout: React.FC<{
 			})}
 		>
 			<main className='mt-[60px]'>{children}</main>
+			<ClientFooter />
 		</AppShell>
 	);
 };

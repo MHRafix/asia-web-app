@@ -1,0 +1,81 @@
+import { Container, Flex, Text } from '@mantine/core';
+import Link from 'next/link';
+import React from 'react';
+import { FaEnvelope, FaMobile } from 'react-icons/fa';
+import { MdLocationOn } from 'react-icons/md';
+
+const ClientFooter: React.FC<{}> = () => {
+	return (
+		<footer className='mt-16 bg-[#070F24] pt-10 pb-5'>
+			<Container>
+				<div className='grid lg:grid-cols-4 text-white gap-y-5'>
+					<div>
+						{' '}
+						<Text fz={25} fw={700} color='teal'>
+							Travelities
+						</Text>
+					</div>
+					<div>
+						<Text color='#4E576C' size='sm' fw={600} mb={12}>
+							Our Businesses
+						</Text>
+						<Text size='sm' color='#999' my={8}>
+							<Link href={'/https://www.facebook.com/famousfashion.com.bd'}>
+								Famous Fashion
+							</Link>
+						</Text>{' '}
+						<Text size='sm' color='#999' my={8}>
+							<Link href={'/'}>Asia Adventure Limited</Link>
+						</Text>
+					</div>
+					<div>
+						<Text color='#4E576C' size='sm' fw={600} mb={12}>
+							Pages
+						</Text>
+						<Text size='sm' color='#999' my={8}>
+							<Link href={'/'}>Home</Link>
+						</Text>
+						<Text size='sm' color='#999' my={8}>
+							<Link href={'/about_us'}>About us</Link>
+						</Text>
+						<Text size='sm' color='#999' my={8}>
+							<Link href={'/trips'}>Trips</Link>
+						</Text>
+						<Text size='sm' color='#999' my={8}>
+							<Link href={'/explore'}>Explore</Link>
+						</Text>
+						<Text size='sm' color='#999' my={8}>
+							<Link href={'/contact_us'}>Contact Us</Link>
+						</Text>
+					</div>
+					<div>
+						<Text color='#4E576C' size='sm' fw={600} mb={12}>
+							Our Info
+						</Text>
+
+						<Flex gap={8} align='center'>
+							<FaEnvelope color='#D6336C' size={20} opacity={1} />
+							<Text size='sm' color='#999' my={8}>
+								example@gmail.com
+							</Text>
+						</Flex>
+						<Flex gap={8} align='center'>
+							<FaMobile color='#7950F2' size={20} opacity={1} />
+							<Text size='sm' color='#999' my={8}>
+								+880 1726631567
+							</Text>
+						</Flex>
+						<Flex gap={8} align='center'>
+							<MdLocationOn color='#15AABF' size={20} opacity={1} />
+							<Text size='sm' color='#999' my={8}>
+								Basundhara, Shop - #102
+							</Text>
+						</Flex>
+					</div>
+				</div>
+			</Container>
+		</footer>
+	);
+};
+
+export default ClientFooter;

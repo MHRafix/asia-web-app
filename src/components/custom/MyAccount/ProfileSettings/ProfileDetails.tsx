@@ -109,13 +109,6 @@ const ProfileDetails: React.FC<{}> = () => {
 					value={user?.phone || '+880 1*** ******'}
 					color={'#000'}
 				/>
-
-				{/* <Flex gap={5} align='center' mt={3}>
-					<MdOutlineNewLabel size={30} color='#e1e1e1' />
-					<Text size='sm' color='#555'>
-						{}
-					</Text>
-				</Flex> */}
 			</Box>
 		</div>
 	);
