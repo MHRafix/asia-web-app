@@ -3,6 +3,7 @@ import { useGetUser } from '@/logic/getUserData';
 import {
 	ActionIcon,
 	Avatar,
+	Burger,
 	Button,
 	Container,
 	Divider,
@@ -15,7 +16,7 @@ import {
 import { openConfirmModal } from '@mantine/modals';
 import Link from 'next/link';
 import Router, { useRouter } from 'next/router';
-import React from 'react';
+import React, { useState } from 'react';
 import { FiLogIn } from 'react-icons/fi';
 import {
 	MdManageAccounts,
@@ -27,6 +28,7 @@ import { TbLayoutGrid, TbLogout } from 'react-icons/tb';
 const ClientHeader: React.FC<{ backIcon?: boolean }> = ({ backIcon }) => {
 	const { user } = useGetUser();
 	const router = useRouter();
+	const [opened, setOpened] = useState(false);
 
 	// signout action function
 	const signOut = async () => {
@@ -40,7 +42,7 @@ const ClientHeader: React.FC<{ backIcon?: boolean }> = ({ backIcon }) => {
 	return (
 		<Header height={60} bg='#FAFAFA' withBorder={false} py={10}>
 			<Container size='lg' px='xs'>
-				<div className='grid grid-cols-3'>
+				<div className='flex justify-between'>
 					<Flex align='center' gap={10}>
 						{backIcon && (
 							<ActionIcon
@@ -57,7 +59,8 @@ const ClientHeader: React.FC<{ backIcon?: boolean }> = ({ backIcon }) => {
 							Travelities
 						</Text>
 					</Flex>
-					<div className='flex justify-between items-center'>
+
+					<div className='xs:hidden lg:flex justify-between items-center gap-5'>
 						<UnstyledButton color='#333333' component={Link} href='/' fw={500}>
 							Home
 						</UnstyledButton>
@@ -86,8 +89,10 @@ const ClientHeader: React.FC<{ backIcon?: boolean }> = ({ backIcon }) => {
 							News Update
 						</UnstyledButton>
 					</div>
+
 					<div className='flex justify-end items-center gap-3'>
 						<Button
+							className='xs:!hidden sm:!block'
 							rightIcon={<MdOpenInNew size={18} />}
 							fw={400}
 							color='teal'
@@ -169,9 +174,47 @@ const ClientHeader: React.FC<{ backIcon?: boolean }> = ({ backIcon }) => {
 								</Menu.Dropdown>
 							</Menu>
 						)}
+						<Burger
+							className='xs:!block lg:!hidden'
+							opened={opened}
+							onClick={() => setOpened((o) => !o)}
+							// @ts-ignore
+							color={opened && 'red'}
+						/>
 					</div>
 				</div>
 			</Container>
+			{opened && (
+				<div className='px-3 w-full grid gap-5 absolute top-[60px] bg-[#FAFAFA] py-5'>
+					<UnstyledButton color='#333333' component={Link} href='/' fw={500}>
+						Home
+					</UnstyledButton>
+					<UnstyledButton
+						color='#333333'
+						component={Link}
+						href='/explore'
+						fw={500}
+					>
+						Explore
+					</UnstyledButton>
+					<UnstyledButton
+						color='#333333'
+						component={Link}
+						href='/trips'
+						fw={500}
+					>
+						Trips
+					</UnstyledButton>
+					<UnstyledButton
+						color='#333333'
+						component={Link}
+						href='/news'
+						fw={500}
+					>
+						News Update
+					</UnstyledButton>
+				</div>
+			)}
 		</Header>
 	);
 };

@@ -1,16 +1,27 @@
 import { Container, Flex, Text } from '@mantine/core';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { FaEnvelope, FaMobile } from 'react-icons/fa';
 import { MdLocationOn } from 'react-icons/md';
+// import Logo from '../../../../public/assets/Logo/logo.png';
 
 const ClientFooter: React.FC<{}> = () => {
+	const { asPath } = useRouter();
+	const isSticky = asPath.split('/')[1] === 'tour-packages';
+
 	return (
-		<footer className='mt-16 bg-[#070F24] pt-10 pb-5'>
+		<footer
+			className={
+				isSticky
+					? `mt-16 bg-[#070F24] pt-10 pb-5 mb-16`
+					: `mt-16 bg-[#070F24] pt-10 pb-5`
+			}
+		>
 			<Container>
 				<div className='grid lg:grid-cols-4 text-white gap-y-5'>
 					<div>
-						{' '}
+						{/* <Image src={Logo} alt='logo' width={70} height={70} /> */}
 						<Text fz={25} fw={700} color='teal'>
 							Travelities
 						</Text>
@@ -20,10 +31,10 @@ const ClientFooter: React.FC<{}> = () => {
 							Our Businesses
 						</Text>
 						<Text size='sm' color='#999' my={8}>
-							<Link href={'/https://www.facebook.com/famousfashion.com.bd'}>
+							<Link href={'https://www.facebook.com/famousfashion.com.bd'}>
 								Famous Fashion
 							</Link>
-						</Text>{' '}
+						</Text>
 						<Text size='sm' color='#999' my={8}>
 							<Link href={'/'}>Asia Adventure Limited</Link>
 						</Text>
