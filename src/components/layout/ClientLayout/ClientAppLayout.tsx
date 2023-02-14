@@ -21,7 +21,7 @@ const ClientAppLayout: React.FC<{
 				},
 			})}
 		>
-			<main className='mt-[60px]'>{children}</main>
+			<main className='mt-[60px] '>{children}</main>
 			<ClientFooter />
 		</AppShell>
 	);
