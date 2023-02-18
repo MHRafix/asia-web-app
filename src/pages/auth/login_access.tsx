@@ -39,10 +39,23 @@ const LoginAccess: NextPage = () => {
 		}
 	}, []);
 
+	// signout action function
+	const signOut = async () => {
+		setLoading(true);
+		const { error } = await supabase.auth.signOut();
+
+		if (!error) {
+			setLoading(false);
+			router?.push('/auth/magic_login');
+		} else {
+			setLoading(false);
+		}
+	};
+
 	// prevent fake user
 	const { user } = useGetUser();
 	if (user) {
-		Router.back();
+		Router.push('/');
 	}
 	return (
 		<div className='h-screen flex justify-center items-center lg:w-4/12 mx-auto text-center'>
@@ -79,6 +92,8 @@ const LoginAccess: NextPage = () => {
 								fullWidth
 								mt='md'
 								radius='md'
+								loading={loading}
+								onClick={() => signOut()}
 							>
 								Logout Now
 							</Button>

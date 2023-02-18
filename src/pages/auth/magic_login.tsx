@@ -64,7 +64,7 @@ const MagicLogin: NextPage = () => {
 	const { user } = useGetUser();
 	if (user) {
 		Router.back();
-		return <div>Unauthorized:----</div>;
+		return null;
 	}
 
 	return (
